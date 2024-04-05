@@ -1,24 +1,29 @@
 # CodelabBasdat4
 CREATE TABLE MEMBERSHIP (
-
-MEMBERSHIP_ID NUMBER PRIMARY KEY,
-
-EMPLOYEE ID NUMBER,
-
-MEMBER_STATUS VARCHAR(50),
-
-CONSTRAINT FK_EMPLOYEE_ID FOREIGN KEY (EMPLOYEE_ID) REFERENCES EMPLOYEES (EMPLOYEE_ID) );
-
+    MEMBERSHIP_ID NUMBER PRIMARY KEY,
+    EMPLOYEE_ID NUMBER,
+    MEMBER_STATUS VARCHAR2(50),
+    CONSTRAINT fk_employee_id FOREIGN KEY (EMPLOYEE_ID) REFERENCES EMPLOYEES(EMPLOYEE_ID)
+);
 ALTER TABLE EMPLOYEES
+ADD (GENDER VARCHAR2(20));
+INSERT INTO MEMBERSHIP (MEMBERSHIP_ID, EMPLOYEE_ID, MEMBER_STATUS)
+VALUES (1, 100, 'Active');
 
-ADD GENDER VARCHAR2(20);
+INSERT INTO MEMBERSHIP (MEMBERSHIP_ID, EMPLOYEE_ID, MEMBER_STATUS)
+VALUES (2, 101, 'Inactive');
+SELECT * FROM MEMBERSHIP;
+INSERT INTO COUNTRIES (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
+VALUES ('SW', 'Swiss', 1);
 
-insert into membership (membership id, employee id, member status) values (65618, 100, 'Continue')
+INSERT INTO COUNTRIES (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
+VALUES ('TH', 'THAILAND', 1);
 
-select from membership
-
-insert into countries (country id, country name, region id) values ('ID', 'Indonesia', 3)
-
-insert into countries (country id, country name, region id) values ('MY', 'Malaysia', 3) insert into countries (country id, country name, region id) values ('TH', 'Thailand', 3)
-
-select first name || '|| last name AS "Full Name", email, phone number as "NO HANDPHONE", salary as "GAJI" from employees
+INSERT INTO COUNTRIES (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
+VALUES ('VT', 'VIETNAM', 1);
+SELECT 
+    FIRST_NAME || ' ' || LAST_NAME AS "Nama lengkap",
+    EMAIL AS "Email",
+    PHONE_NUMBER AS "Nomor handphone",
+    SALARY AS "Gaji"
+FROM EMPLOYEES;
